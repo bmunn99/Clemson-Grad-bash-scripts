@@ -8,11 +8,14 @@
 #SBATCH --output=/data2/lackey_lab/shalam/rnastructure/shapemapper/FASTQ/Nextseq/logs/cut.%j.out
 #SBATCH --error=/data2/lackey_lab/shalam/rnastructure/shapemapper/FASTQ/Nextseq/logs/cut.%j.err
 #SBATCH --mail-type=all
-#SBATCH --mail-user=shalam@g.clemson.edu
+#SBATCH --mail-user=your_email
 
+# Load the cutadapt module
 module load cutadapt
+
+# Change directory to the folder containing your SHAPE FASTQ.gz files
 cd /data2/lackey_lab/shalam/rnastructure/shapemapper/FASTQ/Nextseq/combined_fastq/3_WT_modified/
-# Adapter sequence
+# Enter your adapter sequence
 ADAPTER_SEQ="AGCGAAGTACATTGTGCGTAA"
 
 # Get all fastq.gz files in the current directory
