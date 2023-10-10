@@ -8,11 +8,13 @@
 #SBATCH --output=/data2/lackey_lab/shalam/rnastructure/shapemapper/logs/shape.%j.out
 #SBATCH --error=/data2/lackey_lab/shalam/rnastructure/shapemapper/logs/shape.%j.err
 #SBATCH --mail-type=all
-#SBATCH --mail-user=shalam@g.clemson.edu
+#SBATCH --mail-user=your_email
 
+# Load the shapemapper module
 module load shapemapper/2.1.5
 
-# Run shapemapper
+# Run shapemapper on your samples
+# Depending on the project, you may either have files or folders containing your modified and untreated samples
 shapemapper --name AGO3_WT --target ../FASTA/full/AGO3_WT.fa --out /data2/lackey_lab/shalam/rnastructure/shapemapper/AGO3_results/Nextseq/3_WT/ --modified --folder ../FASTQ/Nextseq/combined_fastq/3_WT_modified --untreated --folder ../FASTQ/Nextseq/combined_fastq/3_WT_untreated --random-primer-len 21 --min-depth 1000 --overwrite
 
 shapemapper --name AGO3_E638A --target ../FASTA/full/AGO3_E638A.fa --out /data2/lackey_lab/shalam/rnastructure/shapemapper/AGO3_results/Nextseq/E638A/ --modified --folder ../FASTQ/Nextseq/combined_fastq/E638A_modified --untreated --folder ../FASTQ/Nextseq/combined_fastq/E638A_untreated --random-primer-len 21 --min-depth 1000 --overwrite
